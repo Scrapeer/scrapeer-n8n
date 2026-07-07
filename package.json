@@ -1,0 +1,70 @@
+{
+  "name": "@scrapeer/n8n-nodes-scrapeer",
+  "version": "0.1.0",
+  "description": "Run saved Scrapeer browser automation flows in the cloud",
+  "license": "MIT",
+  "author": {
+    "name": "Scrapeer"
+  },
+  "homepage": "https://www.scrapeer.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HarunOr/scrapeer-n8n.git"
+  },
+  "bugs": {
+    "url": "https://github.com/HarunOr/scrapeer-n8n/issues"
+  },
+  "keywords": [
+    "n8n-community-node-package",
+    "scrapeer",
+    "scraping",
+    "web-scraping",
+    "browser-automation",
+    "automation"
+  ],
+  "files": [
+    "dist",
+    "nodes/**/*.node.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "n8n-node build",
+    "build:watch": "tsc --watch",
+    "dev": "n8n-node dev",
+    "lint": "n8n-node lint",
+    "lint:fix": "n8n-node lint --fix",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "prepublishOnly": "n8n-node prerelease"
+  },
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "strict": true,
+    "credentials": [
+      "dist/credentials/ScrapeerApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Scrapeer/Scrapeer.node.js",
+      "dist/nodes/ScrapeerTrigger/ScrapeerTrigger.node.js"
+    ]
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.29.0",
+    "@n8n/node-cli": "^0.23.0",
+    "@types/node": "^22.0.0",
+    "eslint": "9.29.0",
+    "n8n-workflow": "^1.89.0",
+    "typescript": "^5.7.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "pnpm@10.25.0"
+}

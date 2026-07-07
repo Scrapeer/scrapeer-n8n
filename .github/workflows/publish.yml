@@ -1,0 +1,67 @@
+name: Publish package
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm_package:
+        description: "Type @scrapeer/n8n-nodes-scrapeer to confirm the package."
+        required: true
+        type: string
+      dry_run:
+        description: "Build and pack only. No npm publish."
+        required: true
+        default: true
+        type: boolean
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    if: inputs.confirm_package == '@scrapeer/n8n-nodes-scrapeer'
+    runs-on: ubuntu-latest
+    environment: npm-publish
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Set up Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Audit dependencies
+        run: pnpm audit
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: n8n lint
+        run: pnpm lint
+
+      - name: Build
+        run: pnpm build
+
+      - name: Pack package
+        run: |
+          mkdir -p /tmp/scrapeer-n8n-pack
+          pnpm pack --pack-destination /tmp/scrapeer-n8n-pack
+
+      - name: Upload package tarball
+        uses: actions/upload-artifact@v7
+        with:
+          name: scrapeer-n8n-package
+          path: /tmp/scrapeer-n8n-pack/*.tgz
+
+      - name: Publish package
+        if: inputs.dry_run == false
+        run: pnpm publish --access public --provenance --no-git-checks

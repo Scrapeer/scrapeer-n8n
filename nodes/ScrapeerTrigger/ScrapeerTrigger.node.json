@@ -1,0 +1,19 @@
+{
+  "node": "@scrapeer/n8n-nodes-scrapeer.ScrapeerTrigger",
+  "nodeVersion": "1.0",
+  "codexVersion": "1.0",
+  "categories": ["Data & Storage"],
+  "alias": ["browser automation", "cloud run", "scraper", "scraping", "web scraping"],
+  "resources": {
+    "credentialDocumentation": [
+      {
+        "url": "https://docs.scrapeer.com/integrations/n8n"
+      }
+    ],
+    "primaryDocumentation": [
+      {
+        "url": "https://docs.scrapeer.com/integrations/n8n"
+      }
+    ]
+  }
+}
