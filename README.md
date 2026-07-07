@@ -1,10 +1,25 @@
 # Scrapeer n8n Nodes
 
-Trigger and monitor saved Scrapeer cloud flows from n8n.
+Scrapeer n8n Nodes connect n8n workflows to
+[Scrapeer](https://www.scrapeer.com), a cloud browser automation and web
+scraping platform.
+
+Use Scrapeer with n8n to trigger saved browser automation flows, pass runtime
+input variables, monitor cloud runs, and retrieve web scraping or data
+extraction results inside your n8n workflows.
+
+## What You Can Automate
+
+- Run saved Scrapeer browser automation flows from n8n.
+- Pass n8n data into Scrapeer flows with input variables.
+- Wait for short cloud runs and return results to the workflow.
+- Poll longer cloud runs and continue when results are ready.
+- List saved flows and recent cloud runs available to your API key.
 
 ## Credentials
 
-Create a Scrapeer API key in Scrapeer settings with these scopes:
+Create a Scrapeer API key in Scrapeer settings at
+[scrapeer.com](https://www.scrapeer.com) with these scopes:
 
 - `flows:read`
 - `runs:read`
