@@ -32,9 +32,9 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
           registry-url: https://registry.npmjs.org
-          cache: pnpm
+          package-manager-cache: false
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -54,7 +54,7 @@ jobs:
       - name: Pack package
         run: |
           mkdir -p /tmp/scrapeer-n8n-pack
-          pnpm pack --pack-destination /tmp/scrapeer-n8n-pack
+          npm pack --pack-destination /tmp/scrapeer-n8n-pack
 
       - name: Upload package tarball
         uses: actions/upload-artifact@v7
@@ -64,4 +64,4 @@ jobs:
 
       - name: Publish package
         if: inputs.dry_run == false
-        run: pnpm publish --access public --provenance --no-git-checks
+        run: npm publish --access public --provenance
