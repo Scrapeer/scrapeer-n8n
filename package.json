@@ -35,6 +35,7 @@
     "lint": "n8n-node lint",
     "lint:fix": "n8n-node lint --fix",
     "typecheck": "tsc -p tsconfig.json --noEmit",
+    "release": "n8n-node release",
     "prepublishOnly": "n8n-node prerelease"
   },
   "n8n": {
