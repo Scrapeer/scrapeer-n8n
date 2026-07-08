@@ -1,6 +1,6 @@
 {
   "name": "@scrapeer/n8n-nodes-scrapeer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Run saved Scrapeer browser automation flows in the cloud",
   "license": "MIT",
   "author": {
@@ -9,10 +9,10 @@
   "homepage": "https://www.scrapeer.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/HarunOr/scrapeer-n8n.git"
+    "url": "git+https://github.com/Scrapeer/scrapeer-n8n.git"
   },
   "bugs": {
-    "url": "https://github.com/HarunOr/scrapeer-n8n/issues"
+    "url": "https://github.com/Scrapeer/scrapeer-n8n/issues"
   },
   "keywords": [
     "n8n-community-node-package",
@@ -24,6 +24,7 @@
   ],
   "files": [
     "dist",
+    "assets",
     "nodes/**/*.node.json",
     "README.md",
     "LICENSE"
